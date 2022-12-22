@@ -1,27 +1,36 @@
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.7;
 
 contract Todos{
+    //A todo model create as a struct
     struct Todo {
         string todo;
         bool isCompleted;
     }
 
-    Todos[] public todos;
+    Todo[]  public  todos; //Each todo will keep in an array 
 
-    function addTodo(string memory _todo) public {
-        todos.push({todo:_todo, isCompleted:false})
+    //A newTodo will push into array just after creating it
+    //with the string text parameter
+    function addTodo(string calldata _todo) public {
+        Todo memory newTodo = Todo(_todo,false);
+        todos.push(newTodo);
     }
+
+    //This function uptade a todo in an given index
     function updateTodo(uint index, string memory text) public{
-        Todos[index].todo = text;
+        todos[index].todo = text;
 
     }
 
+    //This function is for updating the completeness state of a todo 
     function completeTodo(uint index)public{
-        Todos[index].isCompleted = Todos[index].!isCompleted;
+        todos[index].isCompleted = !todos[index].isCompleted;
     }
 
-    function getTodo(uint index) public pure returns(string){
-        return Todos[index].todo;
+    //This functios is for getting a todo in a specified index
+    function getTodo(uint index) public view returns(string memory){
+        return todos[index].todo;
     }
 
 }
