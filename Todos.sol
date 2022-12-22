@@ -29,8 +29,9 @@ contract Todos{
     }
 
     //This functios is for getting a todo in a specified index
-    function getTodo(uint index) public view returns(string memory){
-        return todos[index].todo;
+    function getTodo(uint index) public view returns(string memory, bool){
+        Todo memory todo = todos[index];
+        return (todo.todo, todo.isCompleted);
     }
 
 }
