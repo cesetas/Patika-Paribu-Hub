@@ -8,7 +8,7 @@ contract EtherStore {
     uint public balance;
 
     // With deployment of contract owner is created
-    constructor (){
+    constructor() {
         owner = msg.sender;
     }
 
@@ -21,11 +21,10 @@ contract EtherStore {
     //Only owner is able to send any amount 
     //less than balance to any address
     function withdraw (uint amount, address payable to) external {
-        require(msg.sender==owner,  "You are not owner"); //To block other user except owner to withdraw
+        require(msg.sender == owner,  "You are not owner"); //To block other user except owner to withdraw
         require(amount <= balance,  "Insufficient balance" ); //Should be enoug balance to withdraw
         
-        balance -= amount;
         to.transfer(amount); //this commit transfer        
+         balance -= amount;
     }
-
 }
