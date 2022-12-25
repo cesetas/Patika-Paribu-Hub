@@ -1,0 +1,11 @@
+{
+  "name": "Patika-Paribu-Hub",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cesetas/Patika-Paribu-Hub.git",
+  "author": "Sedat Taskiran <se_tas@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.0"
+  }
+}
